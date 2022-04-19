@@ -6,20 +6,21 @@ import java.util.List;
 import java.util.Queue;
 
 public class Bag {
-    private final Queue<Tile> letters = new LinkedList<>();
+    private final Queue<Tile> tiles = new LinkedList<>();
 
     public Bag() {
         for (char c = 'a'; c < 'z'; c++) {
-            letters.add(new Tile(c, getRandomNumber(1, 10)));
+            tiles.add(new Tile(c, getRandomNumber(1, 10)));
         }
     }
+
     public synchronized List<Tile> extractTiles(int howMany) {
         List<Tile> extracted = new ArrayList<>();
         for (int i = 0; i < howMany; i++) {
-            if (letters.isEmpty()) {
+            if (tiles.isEmpty()) {
                 break;
             }
-            extracted.add(letters.poll());
+            extracted.add(tiles.poll());
         }
 
         return extracted;

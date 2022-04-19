@@ -1,8 +1,5 @@
 package compulsory;
 
-public class MockDictionary {
-
-    public boolean isWord(String str) {
-        return true;
-    }
+public interface Dictionary {
+    public void generateWords(int howMany);
 }
